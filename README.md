@@ -1,150 +1,117 @@
-🧠 C++ Coder Platform
 
-A local, C++-based coding practice platform inspired by LeetCode, designed for practicing data structures, algorithms, and core C++ concepts in a controlled, offline environment.
+# C++ Coder Platform 🚀
+
+A **local, C++-based coding practice platform** inspired by LeetCode, designed for algorithm practice, interview preparation, and systems-level learning.
 
 This project allows you to:
+- Load coding problems from files
+- Write solutions in C++ using your favorite editor
+- Compile and execute solutions automatically
+- Validate solutions against test cases
+- Get instant feedback (Accepted / Wrong Answer)
 
-Load coding problems from files
+---
 
-Write solutions in C++
+## 📁 Project Structure
 
-Compile and execute them automatically
-
-Validate solutions against predefined test cases
-
-Receive immediate feedback (Accepted / Wrong Answer)
-
-🚀 Motivation
-
-Most online platforms abstract away:
-
-Compilation
-
-Runtime behavior
-
-Memory usage
-
-Toolchain control
-
-This project is built to:
-
-Strengthen C++ fundamentals
-
-Simulate real interview conditions
-
-Provide hands-on experience with compilers, execution, and judging
-
-Be fully hackable and extensible
-
-📁 Project Structure
+```
 c++_coder_project/
 ├── README.md
 ├── engine/
-│   ├── main.cpp          # Entry point of the platform
-│   ├── problem_loader.cpp# Reads and parses problem files
-│   ├── template_gen.cpp  # Generates solution.cpp template
-│   ├── compiler.cpp      # Compiles user code
-│   ├── runner.cpp        # Executes compiled binaries
+│   ├── main.cpp          # Entry point for the platform
+│   ├── problem_parser.cpp# Parses problem definition files
+│   ├── compiler.cpp      # Compiles user solution
+│   ├── runner.cpp        # Executes compiled binary
 │   ├── judge.cpp         # Compares output with expected results
-│   └── utils.cpp         # Helper utilities
+│   └── utils.h           # Common helpers
 │
 ├── problems/
-│   ├── two_sum/
-│   │   ├── problem.txt
-│   │   ├── testcases.txt
-│   │   └── expected.txt
-│   └── palindrome/
+│   └── two_sum/
+│       ├── problem.txt   # Problem description
+│       ├── testcases.txt # Input test cases
+│       ├── expected.txt  # Expected outputs
+│       └── solution.cpp  # Auto-generated template for user
 │
-├── workspace/
-│   ├── solution.cpp      # Auto-generated user solution file
-│   ├── output.txt        # Program output
-│   └── compile.log
-│
-└── build/
-    └── coder              # Compiled platform executable
+├── build/                # Compiled binaries (gitignored)
+└── scripts/
+    └── run_problem.sh    # Convenience script to run a problem
+```
 
-⚙️ How It Works
+---
 
-Problem Selection
+## 🧠 How It Works
 
-A problem directory is selected from problems/
+1. **Problem Definition**
+   - Each problem lives in its own folder under `problems/`
+   - Includes description, test cases, and expected outputs
 
-Template Generation
+2. **Code Generation**
+   - The engine generates a `solution.cpp` with:
+     - A fixed `main()` (owned by the platform)
+     - A function stub for the user to implement
 
-A C++ template (solution.cpp) is generated with:
+3. **Editor Launch**
+   - The platform opens the solution file in your preferred editor
 
-User-editable function
+4. **Compilation & Execution**
+   - Uses `g++` to compile the code
+   - Executes against all test cases
 
-Platform-controlled main()
+5. **Judging**
+   - Compares program output with expected output
+   - Stops on first failure or reports success
 
-Code Editing
+---
 
-The platform opens the solution file in the system editor
+## 🛠️ Requirements
 
-Compilation
+- Linux (Ubuntu recommended)
+- `g++` (C++17 or later)
+- Any editor (`vim`, `nano`, `code`, etc.)
 
-The code is compiled using g++
+---
 
-Execution
+## ▶️ Usage (Planned)
 
-The compiled binary is executed against test cases
+```bash
+cd engine
+./coder run problems/two_sum
+```
 
-Judging
+Expected output:
+```
+Running test case 1... PASSED
+Running test case 2... PASSED
+✔ Accepted
+```
 
-Output is compared with expected results
+---
 
-Result is reported (Accepted / Wrong Answer)
+## 🎯 Project Goals
 
-🛠️ Requirements
+- Strengthen C++ fundamentals and STL usage
+- Practice algorithms & data structures
+- Learn system-level programming (processes, files, exec)
+- Build an interview-ready, real-world C++ project
 
-Linux (Ubuntu recommended)
+---
 
-g++ (C++17 or later)
+## 🔮 Future Enhancements
 
-A terminal-based editor or VS Code
+- Time & memory limits
+- Support for trees and linked lists
+- JSON-based problem format
+- Colored CLI output
+- Problem difficulty tagging
+- Progress tracking
 
-🧪 Supported Problem Types (Initial)
+---
 
-Arrays
+## 📌 Author
 
-Strings
+**Rishit Thakkar**  
+Built as a Christmas break systems + C++ learning project 🎄
 
-Basic STL usage
+---
 
-Queues / Stacks
-
-(Advanced structures like trees and graphs will be added later.)
-
-📌 Current Status
-
- Project structure created
-
- README defined
-
- Problem file parser
-
- Code template generator
-
- Compilation and execution engine
-
- Multi-testcase judging
-
- Runtime and safety checks
-
-🌱 Future Enhancements
-
-Execution time measurement
-
-Memory usage limits
-
-Colored CLI output
-
-Difficulty tagging
-
-Progress tracking
-
-Support for trees and graphs
-
-📄 License
-
-This project is for personal learning and practice.
+Happy coding! 💻✨
